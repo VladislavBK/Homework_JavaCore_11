@@ -2,8 +2,3 @@
 
 target/
 
-*.csv
-
-*.json
-
-*.xml
