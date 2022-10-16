@@ -24,7 +24,7 @@ public class Main {
         writeString("JsonFile.json", json);
     }
 
-    private static List<Employee> parseCSV(String[] columnMapping, String fileName) throws FileNotFoundException {
+    protected static List<Employee> parseCSV(String[] columnMapping, String fileName) throws FileNotFoundException {
         List<Employee> staff = null;
         try (CSVReader csvReader = new CSVReader(new FileReader(fileName))) {
             ColumnPositionMappingStrategy<Employee> strategy = new ColumnPositionMappingStrategy<>();
@@ -41,7 +41,7 @@ public class Main {
         return staff;
     }
 
-    private static String listToJson(List<Employee> list) {
+    protected static String listToJson(List<Employee> list) {
         Type listType = new TypeToken<List<Employee>>() {}.getType();
         Gson gson = new GsonBuilder()
                 .create();
@@ -49,7 +49,7 @@ public class Main {
         return json;
     }
 
-    private static void writeString(String fileName, String jsonFile) throws IOException {
+    protected static void writeString(String fileName, String jsonFile) throws IOException {
         FileWriter fileWriter = new FileWriter(fileName);
         fileWriter.write(jsonFile);
         fileWriter.close();
